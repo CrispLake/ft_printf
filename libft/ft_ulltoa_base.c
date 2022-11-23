@@ -6,7 +6,7 @@
 /*   By: emajuri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 12:56:23 by emajuri           #+#    #+#             */
-/*   Updated: 2022/11/21 13:12:56 by emajuri          ###   ########.fr       */
+/*   Updated: 2022/11/23 19:18:56 by emajuri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	count_len(unsigned long long n, int base)
 	size_t	count;
 
 	count = 1;
-	while (n > (base - 1))
+	while (n > (unsigned int)(base - 1))
 	{
 		count++;
 		n /= base;
@@ -29,7 +29,7 @@ char	*ft_ulltoa_base(unsigned long long n, int base)
 {
 	static char	*chars = "0123456789abcdef";
 	char		*new;
-	size_t	i;
+	size_t		i;
 
 	i = 0;
 	if (base < 2 || base > 16)

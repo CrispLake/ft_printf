@@ -6,7 +6,7 @@
 /*   By: emajuri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 09:58:30 by emajuri           #+#    #+#             */
-/*   Updated: 2022/11/22 12:46:36 by emajuri          ###   ########.fr       */
+/*   Updated: 2022/11/23 15:00:12 by emajuri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 void	ft_putnbr_base_fd(int n, int base, int fd)
 {
 	static char	*str = "0123456789abcdefg";
+
 	if (base < 2 || base > 16)
 		return ;
 	if (n > (base - 1))
 	{
 		ft_putnbr_base_fd(n / base, base, fd);
-		ft_putnbr_base_fd(n % base, base,  fd);
+		ft_putnbr_base_fd(n % base, base, fd);
 	}
 	if (n < (base * -1 + 1))
 	{

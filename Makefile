@@ -6,7 +6,7 @@
 #    By: emajuri <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 16:39:22 by emajuri           #+#    #+#              #
-#    Updated: 2022/11/22 16:28:22 by emajuri          ###   ########.fr        #
+#    Updated: 2022/11/23 11:52:59 by emajuri          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ $(LIBFT):
 	make -C libft
 
 $(NAME): $(OSRC)
-	ar -rcs $(NAME) $(OSRC)
+	cp libft/$(LIBFT) ./$(NAME)
+	ar -rus $(NAME) $(OSRC)
 
 clean:
 	rm -f $(OSRC)
@@ -39,9 +40,9 @@ fclean: clean
 	make fclean -C libft
 
 %.o: %.c
-	cc -L ./libft -l ft -I ./libft -c -o $@ $^ 
+	cc $(WWW) -c -o $@ $^ 
 
 re: fclean all
 
 test:
-	cc $(WWW) testmain.c $(NAME) -g
+	cc $(WWW) testmain.c $(NAME) -g -I libftprintf.h
