@@ -6,7 +6,7 @@
 /*   By: emajuri <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:13:18 by emajuri           #+#    #+#             */
-/*   Updated: 2022/11/23 19:15:41 by emajuri          ###   ########.fr       */
+/*   Updated: 2022/12/02 13:28:20 by emajuri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	putnbr_base_count(int n, int base, char *str)
 	return (0);
 }
 
-static int	converse2(const char *str, va_list ap)
+static int	convert2(const char *str, va_list ap)
 {
 	int	len;
 
@@ -88,7 +88,7 @@ static int	converse2(const char *str, va_list ap)
 	return (len);
 }
 
-static int	converse(const char *str, va_list ap)
+static int	convert(const char *str, va_list ap)
 {
 	int		len;
 	char	*tmp;
@@ -111,7 +111,7 @@ static int	converse(const char *str, va_list ap)
 		}
 	}
 	else
-		return (converse2(str, ap));
+		return (convert2(str, ap));
 	return (s_len);
 }
 
@@ -127,7 +127,7 @@ int	ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			len += converse(str, ap);
+			len += convert(str, ap);
 			if (*str)
 				str++;
 		}
